@@ -3348,7 +3348,7 @@ function widget:KeyPress(key, mods, isRepeat, label, unicode, scanCode, actions)
 			prevAutocompleteLetters = nil
 			autocomplete(inputText, true)
 		elseif key == 9 and inputMode ~= 'label' then -- TAB
-			if inputText == '' then
+			if not inputSelectionStart and not autocompleteText then
 				self:cycleInputMode(shift)
 			else
 				inputSelectionStart = nil
